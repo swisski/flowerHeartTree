@@ -47,7 +47,7 @@ pygame.mixer.music.set_volume(1)
 # Set up the display
 WIDTH, HEIGHT = 800, 600
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Happy 6 Months!")
+pygame.display.set_caption("Happy time")
 
 title_font = pygame.font.Font(resource_path(os.path.join("fonts", "DancingScript-VariableFont_wght.ttf")), 58)
 subtitle_font = pygame.font.Font(resource_path(os.path.join("fonts", "DancingScript-VariableFont_wght.ttf")), 45)
@@ -300,12 +300,12 @@ def main():
         screen.blit(canopy_surface, (0, 0))
 
         # Draw title
-        title_text = title_font.render("Happy 6 Month Anniversary!", True, WHITE)
+        title_text = title_font.render("Happy times...", True, WHITE)
         title_rect = title_text.get_rect(center=(WIDTH // 2, HEIGHT // 5))
         screen.blit(title_text, title_rect)
 
         # Draw subtitle
-        subtitle_text = subtitle_font.render("I love you Serena :)", True, WHITE)
+        subtitle_text = subtitle_font.render("Thanks for watching!", True, WHITE)
         subtitle_rect = subtitle_text.get_rect(center=(WIDTH // 2, HEIGHT // 3))
         screen.blit(subtitle_text, subtitle_rect)
 
