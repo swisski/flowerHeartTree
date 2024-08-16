@@ -4,13 +4,11 @@ import math
 import os
 import sys
 
-# Initialize Pygame
 pygame.init()
 
 def resource_path(relative_path):
     """ Get absolute path to resource, works for dev and for PyInstaller """
     try:
-        # PyInstaller creates a temp folder and stores path in _MEIPASS
         base_path = sys._MEIPASS
     except Exception:
         base_path = os.path.abspath(".")
@@ -199,7 +197,6 @@ def create_underlayer():
 def main():
     global current_image, current_image_index, image_position, image_display_time
 
-    # Create tree blocks (static) and petals
     petals = []
     trunk_surface = create_trunk_surface()
     tree_blocks = []
@@ -216,7 +213,7 @@ def main():
     # Create tree blocks
     tree_blocks = create_tree_blocks()
 
-    # Create petals (starting from under the canopy)
+    # Create petals 
     for _ in range(NUM_PETALS):
         x = WIDTH // 2 + random.randint(-TREE_WIDTH // 2, TREE_WIDTH // 2)
         y = HEIGHT - TRUNK_HEIGHT - random.randint(0, TREE_HEIGHT)
@@ -283,7 +280,7 @@ def main():
         for flower in flowers:
             draw_flower(screen, flower)
 
-        # Update and draw petals (heart-shaped)
+        # Update and draw petals
         for petal in petals:
             petal.fall()
             draw_heart(screen, int(petal.x), int(petal.y), PETAL_SIZE, petal.color + (230,))
@@ -295,7 +292,7 @@ def main():
             pygame.draw.rect(underlayer_surface, block_color, (block[0], block[1], block[2], block[2]))
         screen.blit(underlayer_surface, (0, 0))
 
-        # Draw tree top (static blocks)
+        # Draw tree top
         canopy_surface = pygame.Surface((WIDTH, HEIGHT), pygame.SRCALPHA)
         for block in tree_blocks:
             block_color = block[3] + (230,)
